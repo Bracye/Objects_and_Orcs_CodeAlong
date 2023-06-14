@@ -115,39 +115,99 @@
 // ernest.hairColor("green");
 // console.log(ernest);
 
-class Character {
-  constructor(name, age, eyes, hair, lovesCats = true, lovesDogs) {
-    this.legs = 2;
-    this.arms = 2;
-    this.name = name;
-    this.age = age;
-    this.eyes = eyes;
-    this.hair = hair;
-    this.lovesCats = lovesCats;
-    this.lovesDogs = lovesDogs || true;
+// class Character {
+//   constructor(name, age, eyes, hair, lovesCats = true, lovesDogs) {
+//     this.legs = 2;
+//     this.arms = 2;
+//     this.name = name;
+//     this.age = age;
+//     this.eyes = eyes;
+//     this.hair = hair;
+//     this.lovesCats = lovesCats;
+//     this.lovesDogs = lovesDogs || true;
+//   }
+//   greet(otherCharacter) {
+//     console.log("hi " + otherCharacter + "!");
+//   }
+//   classyGreeting(otherClassyCharacter) {
+//     console.log("Howdy " + otherClassyCharacter.name + "!");
+//   }
+//   setHair(hairColor) {
+//     this.hair = hairColor;
+//   }
+//   smite() {
+//     console.log("i smited thee.");
+//   }
+// }
+// const hobbit = new Character("Mr Baggins", 33, "brown", "black");
+// // console.log(hobbit);
+
+// class Hobbit extends Character {
+//     constructor(name, age, eyes, hair) {
+//         super(name, age, eyes, hair);
+//         this.skills = ('thievery', 'speed', 'willpower')
+//     }
+//   steal() {
+//     console.log("let's get away");
+//   }
+//   smite() {
+//     super.super();
+//     this.steal();
+// //   }
+
+// }
+
+// const frodo = new Hobbit("frodo", 30, "blue", "black");
+// // console.log(frodo);
+// frodo.classyGreeting(hobbit);
+// frodo.smite()
+
+//Fact Func
+
+class Car {
+  constructor(make, vin) {
+    this.make = make;
+    this.vin = vin;
   }
-  greet(otherCharacter) {
-    console.log("hi " + otherCharacter + "!");
-  }
-  classyGreeting(otherClassyCharacter) {
-    console.log("Howdy " + otherClassyCharacter.name + "!");
-  }
-  setHair(hairColor) {
-    this.hair = hairColor;
-  }
-  smite() {
-    console.log("i smited thee.");
+  //methods
+  drive() {
+    console.log("vroom vroom");
   }
 }
-const hobbit = new Character("Mr Baggins", 33, "brown", "black");
-// console.log(hobbit);
 
-class Hobbit extends Character {
-  steal() {
-    console.log("let's get away");
+// create an object
+const ford = new Car("Ford", 304099493);
+console.log(ford);
+
+class Factory {
+  constructor(company) {
+    this.company = company;
+    this.cars = [];
+  }
+  generateCar() {
+    const newCar = new Car(this.company, this.cars.length);
+    this.cars.push(newCar);
+  }
+
+  findCar(index) {
+    return this.cars[index];
   }
 }
 
-const frodo = new Hobbit("frodo", 30, "blue", "black");
-console.log(frodo);
-frodo.classyGreeting(hobbit);
+const tesla = new Factory("Tesla");
+// console.log(tesla);
+tesla.generateCar();
+tesla.generateCar();
+tesla.generateCar();
+tesla.generateCar();
+console.log(tesla);
+//find car
+
+console.log(tesla.findCar(0));
+
+const porsche = new Factory("Porsche");
+porsche.generateCar();
+porsche.generateCar();
+porsche.generateCar();
+porsche.generateCar();
+console.log(porsche);
