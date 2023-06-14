@@ -64,16 +64,53 @@
 
 //An array of arrays
 
-const foo = [
-  [1, 2, 3],
-  ["4", "5", "6"],
-  [7, 8, 9],
-  () => {
-    console.log("I am a function inside an array");
-  },
-];
-console.log(foo[0]);
-console.log(foo[0][1]);
+// const foo = [
+//   [1, 2, 3],
+//   ["4", "5", "6"],
+//   [7, 8, 9],
+//   () => {
+//     console.log("I am a function inside an array");
+//   },
+// ];
+// console.log(foo[0]);
+// console.log(foo[0][1]);
 
-//Store functions in an array
-console.log(foo[3]());
+// //Store functions in an array
+// console.log(foo[3]());
+
+class Character {
+  constructor(name, age, eyes, hair, lovesCats = true, loveDogs) {
+    this.legs = 2;
+    this.arms = 2;
+    this.name = name;
+    this.age = age;
+    this.eyes = eyes;
+    this.hair = hair;
+    this.lovesCats = lovesCats;
+    this.lovesDogs = loveDogs || true;
+  }
+
+  setHairColor(hairColor) {
+    this.hair = hairColor;
+  }
+  //method 1
+  greet(otherCharacter) {
+    console.log(`Hello ${otherCharacter}`);
+  }
+  //method 2
+  smite() {
+    console.log("I smite thee you vile person!");
+  }
+}
+
+const alexander = new Character();
+const brock = new Character();
+
+// alexander.greet("Brock");
+// brock.greet("Alexander");
+// alexander.smite();
+
+//bane, age, eyes, hair, cats, dogs
+const ernest = new Character("ernest", "22", "brown", "black", false, true);
+ernest.hairColor("green");
+console.log(ernest);
