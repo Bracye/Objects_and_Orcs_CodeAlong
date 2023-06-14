@@ -78,8 +78,45 @@
 // //Store functions in an array
 // console.log(foo[3]());
 
+// class Character {
+//   constructor(name, age, eyes, hair, lovesCats = true, loveDogs) {
+//     this.legs = 2;
+//     this.arms = 2;
+//     this.name = name;
+//     this.age = age;
+//     this.eyes = eyes;
+//     this.hair = hair;
+//     this.lovesCats = lovesCats;
+//     this.lovesDogs = loveDogs || true;
+//   }
+
+//   setHairColor(hairColor) {
+//     this.hair = hairColor;
+//   }
+//   //method 1
+//   greet(otherCharacter) {
+//     console.log(`Hello ${otherCharacter}`);
+//   }
+//   //method 2
+//   smite() {
+//     console.log("I smite thee you vile person!");
+//   }
+// }
+
+// const alexander = new Character();
+// const brock = new Character();
+
+// // alexander.greet("Brock");
+// // brock.greet("Alexander");
+// // alexander.smite();
+
+// //bane, age, eyes, hair, cats, dogs
+// const ernest = new Character("ernest", "22", "brown", "black", false, true);
+// ernest.hairColor("green");
+// console.log(ernest);
+
 class Character {
-  constructor(name, age, eyes, hair, lovesCats = true, loveDogs) {
+  constructor(name, age, eyes, hair, lovesCats = true, lovesDogs) {
     this.legs = 2;
     this.arms = 2;
     this.name = name;
@@ -87,30 +124,30 @@ class Character {
     this.eyes = eyes;
     this.hair = hair;
     this.lovesCats = lovesCats;
-    this.lovesDogs = loveDogs || true;
+    this.lovesDogs = lovesDogs || true;
   }
-
-  setHairColor(hairColor) {
+  greet(otherCharacter) {
+    console.log("hi " + otherCharacter + "!");
+  }
+  classyGreeting(otherClassyCharacter) {
+    console.log("Howdy " + otherClassyCharacter.name + "!");
+  }
+  setHair(hairColor) {
     this.hair = hairColor;
   }
-  //method 1
-  greet(otherCharacter) {
-    console.log(`Hello ${otherCharacter}`);
-  }
-  //method 2
   smite() {
-    console.log("I smite thee you vile person!");
+    console.log("i smited thee.");
+  }
+}
+const hobbit = new Character("Mr Baggins", 33, "brown", "black");
+// console.log(hobbit);
+
+class Hobbit extends Character {
+  steal() {
+    console.log("let's get away");
   }
 }
 
-const alexander = new Character();
-const brock = new Character();
-
-// alexander.greet("Brock");
-// brock.greet("Alexander");
-// alexander.smite();
-
-//bane, age, eyes, hair, cats, dogs
-const ernest = new Character("ernest", "22", "brown", "black", false, true);
-ernest.hairColor("green");
-console.log(ernest);
+const frodo = new Hobbit("frodo", 30, "blue", "black");
+console.log(frodo);
+frodo.classyGreeting(hobbit);
